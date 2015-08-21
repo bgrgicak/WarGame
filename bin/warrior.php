@@ -36,8 +36,9 @@ class warrior{
 	public function hitForce(){
 		
 		//attack gets lowwer as the warrior loses energy 
-		return $this->attack - ( ($this->fullEnergy - $this->energy) / $this->forceLoss );
-		
+		if($this->fullEnergy > $this->energy)
+			return $this->attack - ( ($this->fullEnergy - $this->energy) / $this->forceLoss );
+		return $this->attack;
 	}
 	public function usePotion(){
 		if(rand(0,$this->potionChance)%$this->potionChance==0){
